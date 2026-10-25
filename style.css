@@ -72,6 +72,9 @@ h2::after { content: ""; display: block; width: 90px; height: 3px; margin: .6rem
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
 .gallery figure { margin: 0; background: var(--cream); padding: .6rem .6rem 0; border: 3px double var(--gold); border-radius: 4px; box-shadow: 0 6px 16px rgba(0,0,0,.18); }
 .gallery img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; background: #e3d2b0; cursor: zoom-in; }
+.gallery .crop { aspect-ratio: 3 / 4; overflow: hidden; }
+.gallery .crop img { width: auto; height: 100%; max-width: none; aspect-ratio: auto; }
+.gallery .crop img.half-right { margin-left: -100%; }
 .gallery figcaption { padding: .5rem; font-style: italic; }
 .gallery .ph {
   aspect-ratio: 3 / 4; display: flex; align-items: center; justify-content: center; padding: 1rem; font-size: 1rem; color: var(--red-dark);

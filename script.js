@@ -11,14 +11,11 @@ const CONFIG = {
     { title: "Pritja e mysafirëve", time: "19:00", place: "Shtëpia e Ernës", address: "Rruga e Bardhë 12, Prishtinë", map: "https://www.google.com/maps/search/?api=1&query=Prishtina" },
     { title: "Nata e Kanagjegjit", time: "20:00", place: "Salla \"Tradita\"", address: "Rruga e Kuqe 5, Prishtinë", map: "https://www.google.com/maps/search/?api=1&query=Prishtina" }
   ],
-  // Vendosni fotot në dosjen images/ me këto emra (shih PROMPTET-AI.md)
+  // [foto, përshkrimi, pjesa]: "left"/"right" e pret foton në gjysmën e majtë/djathtë
   photos: [
-    ["images/foto1.jpg", "Erna me veshje tradicionale dhe mindil"],
-    ["images/foto2.jpg", "Erna me stoli dhe qëndisje"],
-    ["images/foto3.jpg", "Vallja e mindilit"],
-    ["images/foto4.jpg", "Erna me familjen në veshje popullore"],
-    ["images/foto5.jpg", "Detaje: qëndisje dhe stoli"],
-    ["images/foto6.jpg", "Gratë me mindil në valle"]
+    ["images/vasha.jpg", "Erna me veshje tradicionale", "left"],
+    ["images/vasha.jpg", "Erna me mindil", "right"],
+    ["images/mindili.jpg", "Mindili i Ernës"]
   ]
 };
 // ================================
@@ -64,9 +61,10 @@ $("events").innerHTML = CONFIG.events.map(e => `
   </article>`).join("");
 
 // Galeria: nëse fotoja mungon, shfaqet vend i bukur për ta plotësuar
-CONFIG.photos.forEach(([src, cap], i) => {
+CONFIG.photos.forEach(([src, cap, part], i) => {
   const fig = document.createElement("figure");
   const img = new Image();
+  if (part) img.className = "half-" + part;
   img.alt = cap; img.loading = "lazy"; img.src = src;
   img.onerror = () => {
     const ph = document.createElement("div");
@@ -75,7 +73,11 @@ CONFIG.photos.forEach(([src, cap], i) => {
     img.replaceWith(ph);
   };
   img.onclick = () => openBox(src, cap);
-  fig.append(img);
+  if (part) {
+    const crop = document.createElement("div");
+    crop.className = "crop";
+    crop.append(img); fig.append(crop);
+  } else fig.append(img);
   const fc = document.createElement("figcaption");
   fc.textContent = cap; fig.append(fc);
   $("gallery").append(fig);
