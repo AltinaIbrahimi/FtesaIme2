@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kanagjegji i Ernës</title>
+  <meta name="description" content="Mirë se vini në Kanagjegjin e Ernës.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <!-- Ekrani hapës -->
+  <div class="cover" id="cover" role="button" tabindex="0" aria-label="Trokitni për të hapur ftesën">
+    <div class="band"></div>
+    <div class="cover-body">
+      <p class="small" id="coverDate"></p>
+      <h2 class="cover-title">Kliko për të hapur ftesën</h2>
+      <svg class="seal" viewBox="0 0 160 160" aria-hidden="true">
+        <polygon points="80,4 156,80 80,156 4,80" fill="#8b1a1a" stroke="#c9a24b" stroke-width="4"/>
+        <polygon points="80,22 138,80 80,138 22,80" fill="none" stroke="#f6ecd9" stroke-width="2"/>
+        <polygon points="80,36 124,80 80,124 36,80" fill="none" stroke="#c9a24b" stroke-width="1.5" stroke-dasharray="4 4"/>
+        <text x="80" y="96" text-anchor="middle" font-family="Great Vibes, cursive" font-size="54" fill="#f6ecd9" id="sealLetter">E</text>
+      </svg>
+      <p class="small tap">Trokitni për të hapur ✦</p>
+    </div>
+    <div class="band"></div>
+  </div>
+
+  <main id="main">
+    <header class="hero">
+      <div class="band"></div>
+      <div class="hero-in">
+        <p class="small">Me nderim ju ftojmë</p>
+        <p class="eyebrow">Mirë se vini në</p>
+        <h1 class="title">Kanagjegjin e</h1>
+        <p class="names" id="names"></p>
+        <p class="date" id="dateText"></p>
+      </div>
+      <div class="band"></div>
+    </header>
+
+    <section class="section">
+      <p class="small">Ditët numërohen</p>
+      <div class="countdown" id="countdown" aria-live="polite"></div>
+    </section>
+
+    <section class="section alt">
+      <svg class="orn" viewBox="0 0 120 20" aria-hidden="true"><path d="M0 10h44M76 10h44" stroke="#c9a24b" stroke-width="2"/><polygon points="60,1 69,10 60,19 51,10" fill="#8b1a1a" stroke="#c9a24b" stroke-width="1.5"/></svg>
+      <p class="invite" id="inviteText"></p>
+    </section>
+
+    <section class="section">
+      <p class="small">Çasti ynë</p>
+      <h2>Veshjet tona tradicionale</h2>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="section alt">
+      <p class="small">Detajet e eventit</p>
+      <div class="cards" id="events"></div>
+      <button class="btn ghost" id="calBtn" type="button">Shto në kalendar</button>
+    </section>
+
+    <section class="section" id="konfirmo">
+      <p class="small">Konfirmoni praninë</p>
+      <h2>Konfirmo praninë</h2>
+      <p class="sub" id="deadline"></p>
+      <form class="form" id="rsvp">
+        <label>Emri i plotë
+          <input name="name" required autocomplete="name" placeholder="p.sh. Arben Krasniqi">
+        </label>
+        <fieldset>
+          <legend>A do të jeni të pranishëm?</legend>
+          <div class="toggle">
+            <label><input type="radio" name="answer" value="po" checked><span>Po, me gëzim</span></label>
+            <label><input type="radio" name="answer" value="jo"><span>Nuk mund të vij</span></label>
+          </div>
+        </fieldset>
+        <label>Numri i personave
+          <select name="guests">
+            <option>1 person</option><option>2 persona</option><option>3 persona</option>
+            <option>4 persona</option><option>5+ persona</option>
+          </select>
+        </label>
+        <label>Mesazh për Ernën (opsionale)
+          <textarea name="msg" rows="3" placeholder="Shkruani një urim..."></textarea>
+        </label>
+        <button class="btn" type="submit">Dërgo konfirmimin</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <div class="band"></div>
+      <p class="script" id="footName"></p>
+      <p class="small" id="footDate"></p>
+      <p class="sub">Prania juaj është dhurata jonë më e çmuar.</p>
+      <button class="btn ghost" id="shareBtn" type="button">Ndaje ftesën</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
